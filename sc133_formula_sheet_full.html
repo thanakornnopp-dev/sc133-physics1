@@ -1,0 +1,1081 @@
+<!doctype html>
+<html lang="th" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SC 133 สรุปสูตรฟิสิกส์ 3 บทหลัก (บทที่ 5 - 6 - 7) · คณะวิศวกรรมศาสตร์ ม.ธรรมศาสตร์</title>
+  <meta name="description" content="ใบสรุปสูตร SC 133 ฟิสิกส์ 1 ครบทั้ง 3 บท (แกว่งกวัด SHM, คลื่นและคลื่นเสียง, สมบัติเชิงกลและกลศาสตร์ของไหล) ถอดแบบสไตล์สถาปัตยกรรม CE 272 ตัวอักษรคมชัด ไร้สระเพี้ยน พร้อม KaTeX และจุดดักข้อสอบ">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #ffffff;
+      --navy: #14295b;
+      --gold: #a8651a;
+      --gray: #586175;
+      --blue: #1c2fa8;
+      --red: #b3201f;
+      --green: #17702a;
+      --ink: #16181d;
+      --rule: rgba(22, 24, 29, 0.22);
+      --hover: #f4f6fa;
+      --card-bg: #ffffff;
+    }
+    :root[data-theme=dark] {
+      color-scheme: dark;
+      --bg: #10131a;
+      --navy: #a9c1ff;
+      --gold: #e3a556;
+      --gray: #9aa4b8;
+      --blue: #86a0ff;
+      --red: #ff8178;
+      --green: #63d487;
+      --ink: #e7eaf0;
+      --rule: rgba(231, 234, 240, 0.22);
+      --hover: #1c2230;
+      --card-bg: #151922;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 400 17px/1.8 "Sarabun", system-ui, -apple-system, sans-serif;
+    }
+    nav.toc {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg);
+      border-bottom: 1.5px solid var(--ink);
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+    nav.toc a {
+      flex: none;
+      padding: 10px 14px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14.5px;
+      border-right: 1px solid var(--rule);
+      transition: background 0.15s;
+    }
+    nav.toc a:hover { background: var(--hover); }
+    nav.toc .sp { flex: 1; }
+    nav.toc button.th {
+      position: sticky;
+      right: 0;
+      flex: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 14px;
+      min-height: 44px;
+      background: var(--bg);
+      color: var(--ink);
+      border: 0;
+      border-left: 1.5px solid var(--ink);
+      font: 500 14px "Sarabun", sans-serif;
+      cursor: pointer;
+    }
+    nav.toc button.th:hover { background: var(--hover); }
+    main {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 36px 20px 80px;
+    }
+    .kick {
+      color: var(--gold);
+      text-align: center;
+      font-size: 16px;
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+    h1 {
+      color: var(--navy);
+      text-align: center;
+      font-size: clamp(26px, 5vw, 36px);
+      line-height: 1.35;
+      margin: 14px 0 6px;
+      font-weight: 700;
+    }
+    .sub {
+      color: var(--gray);
+      text-align: center;
+      font-size: 18px;
+      margin: 0 0 10px;
+    }
+    .by {
+      text-align: center;
+      font-size: 14.5px;
+      color: var(--gray);
+      margin: 0 0 32px;
+    }
+    .jump {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin: 0 0 32px;
+    }
+    .jump a {
+      font-size: 13.5px;
+      padding: 5px 12px;
+      background: var(--hover);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      color: var(--navy);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .jump a:hover {
+      border-color: var(--navy);
+    }
+    h2 {
+      font-size: clamp(20px, 4vw, 24px);
+      line-height: 1.45;
+      margin: 36px 0 16px;
+      font-weight: 700;
+      color: var(--navy);
+      border-bottom: 2px solid var(--navy);
+      padding-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    h2 .badge {
+      font-size: 13px;
+      font-weight: 700;
+      padding: 2px 8px;
+      background: var(--navy);
+      color: var(--bg);
+      border-radius: 4px;
+    }
+    /* KaTeX nowrap guard */
+    .katex, .katex .base, .katex * {
+      white-space: nowrap !important;
+    }
+    .katex-display {
+      margin: 0.5em 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 2px 0;
+      -webkit-overflow-scrolling: touch;
+    }
+    .katex-display > .katex {
+      white-space: nowrap !important;
+      text-align: left;
+    }
+    /* Master Tables */
+    .tw {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 16px 0 24px;
+      border: 1.5px solid var(--ink);
+      background: var(--bg);
+    }
+    .tw table {
+      width: 100%;
+      min-width: 760px;
+      border-collapse: collapse;
+      font-size: 14.5px;
+      margin: 0;
+    }
+    .tw caption {
+      padding: 10px 14px;
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--navy);
+      background: var(--hover);
+      border-bottom: 1.5px solid var(--ink);
+      text-align: left;
+    }
+    .tw th, .tw td {
+      padding: 10px 12px;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      vertical-align: middle;
+      text-align: left;
+    }
+    .tw th {
+      background: var(--hover);
+      font-weight: 700;
+      color: var(--navy);
+      white-space: nowrap;
+      border-top: 0;
+    }
+    .tw tr:hover td { background: var(--hover); }
+    .tw .col-num { width: 45px; text-align: center; font-weight: 700; color: var(--navy); }
+    .tw .col-topic { width: 180px; font-weight: 600; color: var(--navy); }
+    .tw .col-formula { min-width: 260px; }
+    .tw .col-vars { min-width: 180px; font-size: 13.5px; }
+    .tw .col-units { width: 100px; font-size: 13.5px; color: var(--gray); text-align: center; }
+    .pill {
+      display: inline-block;
+      background: var(--hover);
+      border: 1px solid var(--rule);
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin: 2px 0;
+      white-space: nowrap !important;
+    }
+    /* Formula Card Grid */
+    .formula-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 16px;
+      margin: 18px 0 32px;
+    }
+    .formula-card {
+      border: 1.5px solid var(--ink);
+      background: var(--card-bg);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-radius: 4px;
+      transition: transform 0.1s, border-color 0.15s;
+    }
+    .formula-card:hover {
+      border-color: var(--navy);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+    .formula-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 6px;
+    }
+    .formula-card-title {
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 15.5px;
+    }
+    .formula-card-badge {
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 1px 7px;
+      background: var(--hover);
+      border: 1px solid var(--rule);
+      color: var(--gray);
+      border-radius: 3px;
+    }
+    .formula-card-body {
+      background: var(--hover);
+      border-left: 3.5px solid var(--navy);
+      padding: 8px 12px;
+      margin: 4px 0;
+      overflow-x: auto;
+      white-space: nowrap !important;
+    }
+    .formula-card-desc {
+      font-size: 13.5px;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+    .formula-card-desc ul {
+      margin: 4px 0 0 18px;
+      padding: 0;
+    }
+    .formula-card-desc li {
+      margin-bottom: 2px;
+    }
+    .formula-card-trap {
+      font-size: 13px;
+      color: var(--red);
+      background: rgba(179, 32, 31, 0.06);
+      padding: 6px 10px;
+      border-left: 3px solid var(--red);
+      line-height: 1.5;
+      border-radius: 0 3px 3px 0;
+    }
+    .formula-card-trap strong {
+      color: var(--red);
+    }
+    /* Summary Note Alert Box */
+    .note-box {
+      border: 1.5px solid var(--navy);
+      background: var(--hover);
+      padding: 14px 18px;
+      border-radius: 4px;
+      margin: 20px 0;
+      font-size: 14.5px;
+    }
+    .note-box h4 {
+      margin: 0 0 6px;
+      color: var(--navy);
+      font-size: 16px;
+    }
+    @media print {
+      body { font-size: 12pt; }
+      nav.toc { display: none; }
+      .formula-grid { grid-template-columns: 1fr 1fr; }
+      .formula-card { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="toc" aria-label="สารบัญนำทาง">
+  <a href="#ch5">บทที่ 5 การแกว่งกวัด (SHM)</a>
+  <a href="#ch6">บทที่ 6 คลื่นและคลื่นเสียง</a>
+  <a href="#ch7">บทที่ 7 สมบัติสาร &amp; กลศาสตร์ของไหล</a>
+  <a href="#traps">จุดระวังข้อสอบสำคัญ</a>
+  <span class="sp"></span>
+  <button class="th" id="theme" type="button" aria-label="สลับโหมดสว่าง/มืด" onclick="toggleTheme()">
+    <span class="lbl" id="thl">โหมดมืด</span>
+  </button>
+</nav>
+
+<main>
+  <header style="text-align:center; margin-bottom: 30px;">
+    <p class="kick">สรุปสูตรกระชับฉบับทบทวนสอบภาคทฤษฎีและคำนวณ · วิชาฟิสิกส์ 1 (SC 133)</p>
+    <h1>SC 133 สรุปสูตร 3 บทหลัก</h1>
+    <p class="sub">บทที่ 5 การแกว่งกวัด · บทที่ 6 คลื่นและคลื่นเสียง · บทที่ 7 สมบัติเชิงกลของสารและของไหล</p>
+    <p class="by">คณะวิศวกรรมศาสตร์ มหาวิทยาลัยธรรมศาสตร์<br>รูปแบบจัดทำตามมาตรฐานชีทสรุป CE 272 · อักขระภาษาไทยถูกต้อง 100% ปราศจากสระเพี้ยน</p>
+  </header>
+
+  <div class="jump">
+    <a href="#ch5-table">ตารางสรุป บทที่ 5</a>
+    <a href="#ch5-cards">การ์ดสูตร บทที่ 5</a>
+    <a href="#ch6-table">ตารางสรุป บทที่ 6</a>
+    <a href="#ch6-cards">การ์ดสูตร บทที่ 6</a>
+    <a href="#ch7-table">ตารางสรุป บทที่ 7</a>
+    <a href="#ch7-cards">การ์ดสูตร บทที่ 7</a>
+    <a href="#traps">จุดดักข้อสอบ (Common Traps)</a>
+  </div>
+
+  <!-- ==========================================
+       SECTION 1: CHAPTER 5
+  =========================================== -->
+  <section id="ch5">
+    <h2><span class="badge">บทที่ 5</span> การเคลื่อนที่แบบแกว่งกวัด (Oscillatory Motion &amp; SHM)</h2>
+
+    <div class="tw" id="ch5-table">
+      <table>
+        <caption>ตารางภาพรวมสูตร: บทที่ 5 การเคลื่อนที่แบบฮาร์มอนิกอย่างง่ายและลูกตุ้มแบบต่างๆ</caption>
+        <thead>
+          <tr>
+            <th class="col-num">ที่</th>
+            <th class="col-topic">หัวข้อ / ระบบ</th>
+            <th class="col-formula">สมการควบคุมหลัก</th>
+            <th class="col-vars">ความหมายตัวแปร</th>
+            <th class="col-units">หน่วย SI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-num">5.1</td>
+            <td class="col-topic">ความสัมพันธ์พื้นฐาน</td>
+            <td class="col-formula">
+              <span class="pill">$T = \frac{1}{f}$</span>&nbsp;
+              <span class="pill">$\omega = 2\pi f = \frac{2\pi}{T}$</span>
+            </td>
+            <td class="col-vars">$T$: คาบ, $f$: ความถี่, $\omega$: ความถี่เชิงมุม</td>
+            <td class="col-units">$\text{s}, \text{Hz}, \text{rad/s}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">5.2</td>
+            <td class="col-topic">สมการจลนศาสตร์ SHM</td>
+            <td class="col-formula">
+              <span class="pill">$x(t) = A\sin(\omega t + \phi)$</span><br>
+              <span class="pill">$v(t) = \omega A\cos(\omega t + \phi)$</span><br>
+              <span class="pill">$a(t) = -\omega^2 A\sin(\omega t + \phi) = -\omega^2 x$</span>
+            </td>
+            <td class="col-vars">
+              $A$: แอมพลิจูด, $\phi$: เฟสเริ่มต้น<br>
+              $v_{\max} = \omega A$ (ที่ $x=0$)<br>
+              $a_{\max} = \omega^2 A$ (ที่ $x=\pm A$)
+            </td>
+            <td class="col-units">$\text{m}, \text{m/s}, \text{m/s}^2$</td>
+          </tr>
+          <tr>
+            <td class="col-num">5.3</td>
+            <td class="col-topic">ความเร็วกับตำแหน่ง</td>
+            <td class="col-formula">
+              <span class="pill">$v = \pm \omega \sqrt{A^2 - x^2}$</span>
+            </td>
+            <td class="col-vars">$x$: การกระจัดจากตำแหน่งสมดุล</td>
+            <td class="col-units">$\text{m/s}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">5.4</td>
+            <td class="col-topic">มวลติดสปริง (Hooke)</td>
+            <td class="col-formula">
+              <span class="pill">$\omega = \sqrt{\frac{k}{m}}$</span>&nbsp;
+              <span class="pill">$T = 2\pi\sqrt{\frac{m}{k}}$</span>&nbsp;
+              <span class="pill">$f = \frac{1}{2\pi}\sqrt{\frac{k}{m}}$</span>
+            </td>
+            <td class="col-vars">$k$: ค่าคงตัวสปริง, $m$: มวลของวัตถุ</td>
+            <td class="col-units">$\text{N/m}, \text{kg}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">5.5</td>
+            <td class="col-topic">พลังงานกลรวม SHM</td>
+            <td class="col-formula">
+              <span class="pill">$E_k = \frac{1}{2}mv^2 = \frac{1}{2}k(A^2 - x^2)$</span><br>
+              <span class="pill">$E_p = \frac{1}{2}kx^2$</span><br>
+              <span class="pill">$E = E_k + E_p = \frac{1}{2}kA^2 = \frac{1}{2}m\omega^2 A^2$</span>
+            </td>
+            <td class="col-vars">
+              พลังงานกลรวมมีค่าคงที่เสมอ<br>
+              ที่สมดุล ($x=0$): $E_k=\max, E_p=0$<br>
+              ที่ปลายสุด ($x=\pm A$): $E_k=0, E_p=\max$
+            </td>
+            <td class="col-units">$\text{J}$ (จูล)</td>
+          </tr>
+          <tr>
+            <td class="col-num">5.6</td>
+            <td class="col-topic">ลูกตุ้มอย่างง่าย (Simple)</td>
+            <td class="col-formula">
+              <span class="pill">$\omega = \sqrt{\frac{g}{L}}$</span>&nbsp;
+              <span class="pill">$T = 2\pi\sqrt{\frac{L}{g}}$</span>&nbsp;
+              <span class="pill">$f = \frac{1}{2\pi}\sqrt{\frac{g}{L}}$</span>
+            </td>
+            <td class="col-vars">$L$: ความยาวเชือก, $g$: ความเร่งโน้มถ่วง (มุมเล็ก $\theta < 5^\circ$, ไม่ขึ้นกับมวล $m$)</td>
+            <td class="col-units">$\text{m}, \text{m/s}^2$</td>
+          </tr>
+          <tr>
+            <td class="col-num">5.7</td>
+            <td class="col-topic">ลูกตุ้มกายภาพ (Physical)</td>
+            <td class="col-formula">
+              <span class="pill">$\omega = \sqrt{\frac{mgd}{I}}$</span>&nbsp;
+              <span class="pill">$T = 2\pi\sqrt{\frac{I}{mgd}}$</span>
+            </td>
+            <td class="col-vars">$I$: โมเมนต์ความเฉื่อยรอบจุดหมุน $O$<br>$d$: ระยะจากจุดหมุน $O$ ถึงจุดศูนย์กลางมวล (CM)</td>
+            <td class="col-units">$\text{kg}\cdot\text{m}^2, \text{m}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">5.8</td>
+            <td class="col-topic">ลูกตุ้มชนิดบิด (Torsion)</td>
+            <td class="col-formula">
+              <span class="pill">$\tau = -\kappa\theta$</span>&nbsp;
+              <span class="pill">$\omega = \sqrt{\frac{\kappa}{I}}$</span>&nbsp;
+              <span class="pill">$T = 2\pi\sqrt{\frac{I}{\kappa}}$</span>
+            </td>
+            <td class="col-vars">$\kappa$ (kappa): ค่าคงตัวการบิดของลวด<br>$I$: โมเมนต์ความเฉื่อยแผ่นวัตถุ</td>
+            <td class="col-units">$\text{N}\cdot\text{m/rad}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">5.9</td>
+            <td class="col-topic">การแกว่งกวัดแบบหน่วง</td>
+            <td class="col-formula">
+              <span class="pill">$x(t) = A_0 e^{-\gamma t}\sin(\omega' t + \phi)$</span><br>
+              <span class="pill">$\gamma = \frac{b}{2m}, \quad \omega' = \sqrt{\omega_0^2 - \gamma^2}$</span>
+            </td>
+            <td class="col-vars">
+              $b$: สัมประสิทธิ์ความหน่วง ($F = -bv$)<br>
+              1. หน่วงเกิน: $\frac{b^2}{4m^2} > \frac{k}{m}$<br>
+              2. หน่วงวิกฤต: $\frac{b^2}{4m^2} = \frac{k}{m}$<br>
+              3. หน่วงน้อย: $\frac{b^2}{4m^2} < \frac{k}{m}$
+            </td>
+            <td class="col-units">$\text{s}^{-1}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">5.10</td>
+            <td class="col-topic">แรงขับ &amp; การสั่นพ้อง</td>
+            <td class="col-formula">
+              <span class="pill">$A = \frac{F_0/m}{\sqrt{(\omega_0^2 - \omega_f^2)^2 + 4\gamma^2\omega_f^2}}$</span>
+            </td>
+            <td class="col-vars">การสั่นพ้อง (Resonance): เกิดเมื่อความถี่แรงขับ $\omega_f = \omega_0$ แอมพลิจูดจะมากที่สุด</td>
+            <td class="col-units">$\text{rad/s}$</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Formula Cards Ch 5 -->
+    <div class="formula-grid" id="ch5-cards">
+      <div class="formula-card">
+        <div class="formula-card-head">
+          <span class="formula-card-title">1. มวลติดสปริง (Mass on Spring)</span>
+          <span class="formula-card-badge">สมการสำคัญ</span>
+        </div>
+        <div class="formula-card-body">
+          $$T = 2\pi\sqrt{\frac{m}{k}}, \quad f = \frac{1}{2\pi}\sqrt{\frac{k}{m}}, \quad \omega = \sqrt{\frac{k}{m}}$$
+        </div>
+        <div class="formula-card-desc">
+          เมื่อดึงมวลแล้วปล่อยให้สั่นบนพื้นราบไร้แรงเสียดทาน หรือแขวนในแนวดิ่ง
+        </div>
+        <div class="formula-card-trap">
+          <strong>จุดระวังข้อสอบ:</strong> ในสปริงแนวดิ่ง หากมีมวลเดิม $M$ อยู่แล้วใส่มวลเพิ่ม $m$ มวลรวมที่ใช้แกว่งกวัดคือ $(M+m)$ แต่ระยะยืดตอนเริ่มต้นหา $k$ คิดเฉพาะน้ำหนักของมวลที่ใส่เพิ่ม $k = \frac{mg}{\Delta x}$
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-head">
+          <span class="formula-card-title">2. ลูกตุ้มกายภาพ (Physical Pendulum)</span>
+          <span class="formula-card-badge">ออกสอบบ่อย</span>
+        </div>
+        <div class="formula-card-body">
+          $$T = 2\pi\sqrt{\frac{I}{mgd}}, \quad I = \frac{mgd}{4\pi^2 f^2}$$
+        </div>
+        <div class="formula-card-desc">
+          วัตถุเกร็งรูปทรงใดๆ หมุนแกว่งรอบจุดแขวน $O$ โดย $d$ คือระยะห่างระหว่างจุดหมุน $O$ กับจุดศูนย์กลางมวล (CM)
+        </div>
+        <div class="formula-card-trap">
+          <strong>จุดระวังข้อสอบ:</strong> โมเมนต์ความเฉื่อย $I$ ต้องเป็นรอบ "จุดหมุน $O$" ไม่ใช่รอบ CM หากโจทย์ให้ $I_{\text{cm}}$ มา ต้องใช้ทฤษฎีแกนขนาน: $I = I_{\text{cm}} + md^2$
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-head">
+          <span class="formula-card-title">3. ลูกตุ้มชนิดบิด (Torsion Pendulum)</span>
+          <span class="formula-card-badge">คำนวณทอร์ก</span>
+        </div>
+        <div class="formula-card-body">
+          $$\tau = -\kappa\theta \implies \kappa = \frac{\tau}{\theta}, \quad T = 2\pi\sqrt{\frac{I}{\kappa}}$$
+        </div>
+        <div class="formula-card-desc">
+          แผ่นจานหรือวัตถุถูกบิดด้วยมุม $\theta$ (เรเดียน) แล้วปล่อยให้แกว่งกวัดเชิงมุมไป-กลับรอบแกนลวด
+        </div>
+        <div class="formula-card-trap">
+          <strong>จุดระวังข้อสอบ:</strong> มุมบิด $\theta$ ต้องแปลงเป็นเรเดียน ($\text{rad}$) เสมอ! สำหรับแผ่นจานกลมตัน $I = \frac{1}{2}MR^2$ แต่ถ้าเป็นวงแหวนบาง $I = MR^2$
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-head">
+          <span class="formula-card-title">4. การแกว่งกวัดแบบหน่วง (Damped Motion)</span>
+          <span class="formula-card-badge">เอกซ์โพเนนเชียล</span>
+        </div>
+        <div class="formula-card-body">
+          $$A(t) = A_0 e^{-\gamma t} \quad \text{โดย } \gamma = \frac{b}{2m}$$
+          $$\ln\left(\frac{A}{A_0}\right) = -\gamma t \implies \gamma = \frac{1}{t}\ln\left(\frac{A_0}{A}\right)$$
+        </div>
+        <div class="formula-card-desc">
+          แอมพลิจูดจะลดลงตามเวลา $t = n T$ (โดย $n$ คือจำนวนรอบ และ $T$ คือคาบการแกว่ง)
+        </div>
+        <div class="formula-card-trap">
+          <strong>จุดระวังข้อสอบ:</strong> เวลา $t$ ในสูตรคือเวลาทั้งหมด เช่น แกว่งไป 10 รอบ คาบรอบละ $5\text{ s}$ จะได้ $t = 10 \times 5 = 50\text{ s}$
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 2: CHAPTER 6
+  =========================================== -->
+  <section id="ch6">
+    <h2><span class="badge">บทที่ 6</span> การเคลื่อนที่แบบคลื่นและคลื่นเสียง (Wave Motion and Sound Wave)</h2>
+
+    <div class="tw" id="ch6-table">
+      <table>
+        <caption>ตารางภาพรวมสูตร: บทที่ 6 คลื่นกล คลื่นนิ่ง และปรากฏการณ์ของเสียง</caption>
+        <thead>
+          <tr>
+            <th class="col-num">ที่</th>
+            <th class="col-topic">หัวข้อ / ปรากฏการณ์</th>
+            <th class="col-formula">สมการควบคุมหลัก</th>
+            <th class="col-vars">ความหมายตัวแปร</th>
+            <th class="col-units">หน่วย SI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-num">6.1</td>
+            <td class="col-topic">อัตราเร็วคลื่นทั่วไป</td>
+            <td class="col-formula">
+              <span class="pill">$v = f\lambda = \frac{\lambda}{T} = \frac{\omega}{k}$</span>
+            </td>
+            <td class="col-vars">$k = \frac{2\pi}{\lambda}$ (เลขคลื่น), $\omega = 2\pi f$ (ความถี่เชิงมุม)</td>
+            <td class="col-units">$\text{m/s}, \text{rad/m}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">6.2</td>
+            <td class="col-topic">ฟังก์ชันคลื่นเคลื่อนที่</td>
+            <td class="col-formula">
+              <span class="pill">$y(x,t) = A\sin(kx \mp \omega t)$</span>
+            </td>
+            <td class="col-vars">$- \omega t$: คลื่นวิ่งไปทางขวา ($+x$)<br>$+ \omega t$: คลื่นวิ่งไปทางซ้าย ($-x$)</td>
+            <td class="col-units">$\text{m}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">6.3</td>
+            <td class="col-topic">อัตราเร็วคลื่นในตัวกลาง</td>
+            <td class="col-formula">
+              <span class="pill">เชือก: $v = \sqrt{\frac{T}{\mu}}$</span>&nbsp;
+              <span class="pill">น้ำตื้น: $v = \sqrt{gd}$</span><br>
+              <span class="pill">ของแข็ง: $v = \sqrt{\frac{Y}{\rho}}$</span>&nbsp;
+              <span class="pill">ของไหล: $v = \sqrt{\frac{B}{\rho}}$</span><br>
+              <span class="pill">เสียงในอากาศ: $v_T = 331 + 0.6T_C$</span>
+            </td>
+            <td class="col-vars">
+              $T$: แรงตึงเชือก, $\mu = \frac{m}{L}$ (มวลต่อความยาว)<br>
+              $d$: ความลึกน้ำ, $Y$: ยังมอดูลัส, $B$: บัลก์มอดูลัส<br>
+              $T_C$: อุณหภูมิอากาศในหน่วยองศาเซลเซียส ($^\circ\text{C}$)
+            </td>
+            <td class="col-units">$\text{m/s}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">6.4</td>
+            <td class="col-topic">กฎของสเนลล์ (หักเห)</td>
+            <td class="col-formula">
+              <span class="pill">$\frac{\sin\theta_1}{\sin\theta_2} = \frac{v_1}{v_2} = \frac{\lambda_1}{\lambda_2} = \frac{n_2}{n_1}$</span><br>
+              <span class="pill">มุมวิกฤต: $\sin\theta_c = \frac{n_2}{n_1} = \frac{v_1}{v_2}$</span>
+            </td>
+            <td class="col-vars"><strong>ความถี่ $f$ คงที่เสมอ</strong> เมื่อคลื่นเคลื่อนที่ผ่านรอยต่อตัวกลาง!</td>
+            <td class="col-units">ไร้หน่วย</td>
+          </tr>
+          <tr>
+            <td class="col-num">6.5</td>
+            <td class="col-topic">การแทรกสอด (เฟสตรงกัน)</td>
+            <td class="col-formula">
+              <span class="pill">ปฏิบัพ (เสริม): $d\sin\theta = |S_1P - S_2P| = n\lambda$</span><br>
+              <span class="pill">บัพ (หักล้าง): $d\sin\theta = |S_1P - S_2P| = (n - \frac{1}{2})\lambda$</span>
+            </td>
+            <td class="col-vars">
+              $d$: ระยะห่างระหว่างแหล่งกำเนิด<br>
+              ปฏิบัพ: $n = 0, 1, 2, \dots$<br>
+              บัพ: $n = 1, 2, 3, \dots$<br>
+              <em>(ถ้าแหล่งกำเนิดเฟสตรงข้าม สูตรจะสลับกัน!)</em>
+            </td>
+            <td class="col-units">$\text{m}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">6.6</td>
+            <td class="col-topic">คลื่นนิ่งในเชือกตรึง 2 ปลาย / ท่อเปิด 2 ด้าน</td>
+            <td class="col-formula">
+              <span class="pill">$L = \frac{n\lambda_n}{2} \implies \lambda_n = \frac{2L}{n}$</span><br>
+              <span class="pill">$f_n = \frac{nv}{2L} = n f_1 \quad (n = 1, 2, 3, \dots)$</span>
+            </td>
+            <td class="col-vars">
+              $n = 1$: ความถี่มูลฐาน (ฮาร์มอนิกที่ 1)<br>
+              $n = 2$: โอเวอร์โทนที่ 1 (ฮาร์มอนิกที่ 2)<br>
+              <strong>มีครบทุกฮาร์มอนิกทั้งเลขคู่และคี่</strong>
+            </td>
+            <td class="col-units">$\text{Hz}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">6.7</td>
+            <td class="col-topic">คลื่นนิ่งในท่อปิด 1 ด้าน (Closed Pipe)</td>
+            <td class="col-formula">
+              <span class="pill">$L = \frac{n\lambda_n}{4} \implies \lambda_n = \frac{4L}{n}$</span><br>
+              <span class="pill">$f_n = \frac{nv}{4L} = n f_1 \quad (n = 1, 3, 5, \dots)$</span>
+            </td>
+            <td class="col-vars">
+              ปลายปิดเป็นบัพ ปลายเปิดเป็นปฏิบัพ<br>
+              <strong>มีเฉพาะฮาร์มอนิกเลขคี่เท่านั้น!</strong><br>
+              $n=3$: โอเวอร์โทนที่ 1 (ฮาร์มอนิกที่ 3)
+            </td>
+            <td class="col-units">$\text{Hz}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">6.8</td>
+            <td class="col-topic">หลอดเรโซแนนซ์</td>
+            <td class="col-formula">
+              <span class="pill">$L_2 - L_1 = \frac{\lambda}{2} \implies \lambda = 2(L_2 - L_1)$</span><br>
+              <span class="pill">$v = 2(L_2 - L_1)f$</span>
+            </td>
+            <td class="col-vars">$L_1, L_2$: ระดับน้ำในหลอดทดลองที่เกิดเสียงดังก้องสองครั้งที่ติดกัน</td>
+            <td class="col-units">$\text{m}, \text{m/s}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">6.9</td>
+            <td class="col-topic">ความเข้มเสียงและระดับเสียง</td>
+            <td class="col-formula">
+              <span class="pill">$I = \frac{P}{4\pi R^2}$</span>&nbsp;
+              <span class="pill">$\beta = 10\log_{10}\left(\frac{I}{I_0}\right)$</span>
+            </td>
+            <td class="col-vars">
+              $P$: กำลังเสียงแหล่งกำเนิด, $R$: ระยะห่าง<br>
+              $I_0 = 10^{-12}\text{ W/m}^2$ (เสียงเบาสุดที่คนได้ยิน)
+            </td>
+            <td class="col-units">$\text{W/m}^2, \text{dB}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">6.10</td>
+            <td class="col-topic">บีตส์ (Beats)</td>
+            <td class="col-formula">
+              <span class="pill">$f_{\text{beat}} = |f_1 - f_2|$</span>
+            </td>
+            <td class="col-vars">จำนวนครั้งที่เสียงดัง-ค่อยสลับกันต่อ 1 วินาที</td>
+            <td class="col-units">$\text{Hz}$ หรือ ครั้ง/s</td>
+          </tr>
+          <tr>
+            <td class="col-num">6.11</td>
+            <td class="col-topic">ปรากฏการณ์ดอปเปลอร์ (Doppler Effect)</td>
+            <td class="col-formula">
+              <span class="pill">$f' = f\left(\frac{v \pm v_o}{v \mp v_s}\right)$</span>
+            </td>
+            <td class="col-vars">
+              $v$: อัตราเร็วเสียงในอากาศ<br>
+              $v_o$: อัตราเร็วผู้สังเกต (+ เข้าหา, - วิ่งหนี)<br>
+              $v_s$: อัตราเร็วแหล่งกำเนิด (- เข้าหา, + วิ่งหนี)
+            </td>
+            <td class="col-units">$\text{Hz}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">6.12</td>
+            <td class="col-topic">คลื่นกระแทก &amp; เลขมัค</td>
+            <td class="col-formula">
+              <span class="pill">$\sin\theta = \frac{v}{v_s}$</span>&nbsp;
+              <span class="pill">$M = \frac{v_s}{v} = \frac{1}{\sin\theta}$</span>
+            </td>
+            <td class="col-vars">เมื่อแหล่งกำเนิดเคลื่อนที่เร็วกว่าเสียง ($v_s > v$) ก่อให้เกิดกรวยคลื่นกระแทก (โซนิกบูม)</td>
+            <td class="col-units">ไร้หน่วย</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Formula Cards Ch 6 -->
+    <div class="formula-grid" id="ch6-cards">
+      <div class="formula-card">
+        <div class="formula-card-head">
+          <span class="formula-card-title">1. คลื่นนิ่งในท่อปลายปิด 1 ด้าน vs เปิด 2 ด้าน</span>
+          <span class="formula-card-badge">จำแนกแม่นยำ</span>
+        </div>
+        <div class="formula-card-body">
+          $$\text{เปิด 2 ด้าน / เชือกตรึง 2 ปลาย: } f_n = \frac{nv}{2L} \quad (n = 1, 2, 3, \dots)$$
+          $$\text{ปิด 1 ด้าน: } f_n = \frac{nv}{4L} \quad (n = 1, 3, 5, \dots)$$
+        </div>
+        <div class="formula-card-desc">
+          ปลายเปิด = ปฏิบัพ ($A$), ปลายปิด = บัพ ($N$) ระยะห่างระหว่าง $N$ ถึง $N$ ถัดไปเท่ากับ $\frac{\lambda}{2}$ เสมอ
+        </div>
+        <div class="formula-card-trap">
+          <strong>จุดระวังข้อสอบ:</strong> ในท่อปลายปิด "โอเวอร์โทนที่ 1" คือ $n = 3$ (ฮาร์มอนิกที่ 3) และ "โอเวอร์โทนที่ 2" คือ $n = 5$ อย่าสับสนใส่ $n=2$ เด็ดขาดเพราะท่อปิดไม่มีฮาร์มอนิกคู่!
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-head">
+          <span class="formula-card-title">2. ปรากฏการณ์ดอปเปลอร์ (Doppler Effect)</span>
+          <span class="formula-card-badge">กฎเครื่องหมาย</span>
+        </div>
+        <div class="formula-card-body">
+          $$f' = f\left(\frac{v \pm v_o}{v \mp v_s}\right)$$
+        </div>
+        <div class="formula-card-desc">
+          <ul>
+            <li><strong>ผู้สังเกต ($v_o$ อยู่เศษ):</strong> เคลื่อนที่เข้าหาใช้เครื่องหมาย ($+$) / เคลื่อนที่หนีออกใช้ ($-$)</li>
+            <li><strong>แหล่งกำเนิด ($v_s$ อยู่ส่วน):</strong> เคลื่อนที่เข้าหาใช้เครื่องหมาย ($-$) / เคลื่อนที่หนีออกใช้ ($+$)</li>
+          </ul>
+        </div>
+        <div class="formula-card-trap">
+          <strong>ท่องจำง่าย:</strong> "เคลื่อนที่เข้าหากัน ความถี่ต้องสูงขึ้น ($f' > f$) ดังนั้นเศษต้องบวก ส่วนต้องลบ"
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-head">
+          <span class="formula-card-title">3. ความเข้มและระดับความเข้มเสียง</span>
+          <span class="formula-card-badge">สมการลอการิทึม</span>
+        </div>
+        <div class="formula-card-body">
+          $$I = \frac{P}{4\pi R^2}, \quad \beta = 10\log_{10}\left(\frac{I}{10^{-12}}\right)$$
+          $$\Delta\beta = \beta_2 - \beta_1 = 10\log_{10}\left(\frac{I_2}{I_1}\right) = 20\log_{10}\left(\frac{R_1}{R_2}\right)$$
+        </div>
+        <div class="formula-card-desc">
+          ถ้ากำลังงานคงที่ ความเข้มเสียงจะลดลงตามกำลังสองของระยะทาง ($I \propto \frac{1}{R^2}$)
+        </div>
+        <div class="formula-card-trap">
+          <strong>จุดระวังข้อสอบ:</strong> ถ้าแหล่งกำเนิดเสียงดังเพิ่มขึ้น 10 เท่า ระดับเสียงจะเพิ่มขึ้น $+10\text{ dB}$ ถ้าเพิ่มขึ้น 100 เท่า จะเพิ่มขึ้น $+20\text{ dB}$
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-head">
+          <span class="formula-card-title">4. ความถี่บีตส์กับการติดขี้ผึ้ง</span>
+          <span class="formula-card-badge">การวิเคราะห์ 2 กรณี</span>
+        </div>
+        <div class="formula-card-body">
+          $$f_{\text{beat}} = |f_1 - f_2| \implies f_1 = f_2 \pm f_{\text{beat}}$$
+        </div>
+        <div class="formula-card-desc">
+          เมื่อเอาขี้ผึ้งไปติดที่ส้อมเสียง จะทำให้มวลเพิ่มขึ้น ส่งผลให้ความถี่ธรรมชาติของส้อมเสียงนั้น <strong>"ลดลงเสมอ"</strong>
+        </div>
+        <div class="formula-card-trap">
+          <strong>จุดระวังข้อสอบ:</strong> ต้องตั้ง 2 กรณี ($f_1 = f_2 + f_b$ หรือ $f_2 - f_b$) แล้วดูว่าเมื่อลดความถี่ $f_1$ ลงแล้ว ค่าบีตส์ใหม่ ($|f_1 - f_2|$) เพิ่มขึ้นหรือลดลงตามที่โจทย์ระบุ
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 3: CHAPTER 7
+  =========================================== -->
+  <section id="ch7">
+    <h2><span class="badge">บทที่ 7</span> สมบัติเชิงกลของสารและกลศาสตร์ของไหล (Properties of Matter &amp; Fluids)</h2>
+
+    <div class="tw" id="ch7-table">
+      <table>
+        <caption>ตารางภาพรวมสูตร: บทที่ 7 ความยืดหยุ่น สถิตยศาสตร์ของไหล และพลศาสตร์ของไหล</caption>
+        <thead>
+          <tr>
+            <th class="col-num">ที่</th>
+            <th class="col-topic">หัวข้อ / กฎฟิสิกส์</th>
+            <th class="col-formula">สมการควบคุมหลัก</th>
+            <th class="col-vars">ความหมายตัวแปร</th>
+            <th class="col-units">หน่วย SI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-num">7.1</td>
+            <td class="col-topic">ความเค้น (Stress)</td>
+            <td class="col-formula">
+              <span class="pill">$\sigma = \frac{F}{A}$</span>
+            </td>
+            <td class="col-vars">$F$: แรงตั้งฉากกับพื้นที่, $A$: พื้นที่หน้าตัด</td>
+            <td class="col-units">$\text{N/m}^2$ หรือ $\text{Pa}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">7.2</td>
+            <td class="col-topic">ความเครียด (Strain)</td>
+            <td class="col-formula">
+              <span class="pill">เชิงเส้น: $e = \frac{\Delta L}{L_0}$</span><br>
+              <span class="pill">เฉือน: $\gamma = \frac{a}{h} \approx \theta$</span><br>
+              <span class="pill">ปริมาตร: $\frac{\Delta V}{V_0}$</span>
+            </td>
+            <td class="col-vars">อัตราส่วนการเปลี่ยนขนาดต่อขนาดเดิม <strong>(ไร้หน่วย)</strong></td>
+            <td class="col-units">ไร้หน่วย</td>
+          </tr>
+          <tr>
+            <td class="col-num">7.3</td>
+            <td class="col-topic">มอดูลัสความยืดหยุ่น</td>
+            <td class="col-formula">
+              <span class="pill">ยังมอดูลัส: $Y = \frac{\sigma}{e} = \frac{F L_0}{A \Delta L}$</span><br>
+              <span class="pill">มอดูลัสเฉือน: $S = \frac{F/A}{\gamma}$</span><br>
+              <span class="pill">บัลก์มอดูลัส: $B = -\frac{\Delta P}{\Delta V / V_0}$</span>
+            </td>
+            <td class="col-vars">
+              $Y$: ยืด/หดเชิงเส้น<br>
+              $S$: บิดเบี้ยวเชิงมุม<br>
+              $B$: การถูกบีบอัดรอบทิศทาง
+            </td>
+            <td class="col-units">$\text{N/m}^2$ หรือ $\text{Pa}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">7.4</td>
+            <td class="col-topic">ความดันของเหลว</td>
+            <td class="col-formula">
+              <span class="pill">เกจ: $P_G = \rho g h$</span><br>
+              <span class="pill">สัมบูรณ์: $P = P_{\text{atm}} + \rho g h$</span>
+            </td>
+            <td class="col-vars">
+              $h$: ความลึกใต้ผิวน้ำ<br>
+              $P_{\text{atm}} = 1.013 \times 10^5\text{ Pa}$ (1 บรรยากาศ)
+            </td>
+            <td class="col-units">$\text{Pa}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">7.5</td>
+            <td class="col-topic">กฎของปาสคาล &amp; คานโยก</td>
+            <td class="col-formula">
+              <span class="pill">$\frac{F_1}{A_1} = \frac{F_2}{A_2} \implies F_2 = F_1\left(\frac{d_2}{d_1}\right)^2$</span><br>
+              <span class="pill">คานโยก: $F_1' \cdot L = F_1 \cdot l$</span>
+            </td>
+            <td class="col-vars">ความดันในระบบปิดถ่ายทอดเท่ากันทุกจุด, คานโยกช่วยเพิ่มแรงกดที่ลูกสูบเล็ก</td>
+            <td class="col-units">$\text{N}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">7.6</td>
+            <td class="col-topic">แรงลอยตัว (อาร์คิมีดีส)</td>
+            <td class="col-formula">
+              <span class="pill">$F_B = \rho_{\text{fluid}} g V_{\text{sub}}$</span><br>
+              <span class="pill">ชั่งในของเหลว: $T = mg - F_B$</span>
+            </td>
+            <td class="col-vars">
+              <strong>$\rho_{\text{fluid}}$ คือความหนาแน่นของของไหล</strong><br>
+              $V_{\text{sub}}$ คือปริมาตรวัตถุเฉพาะส่วนที่จม
+            </td>
+            <td class="col-units">$\text{N}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">7.7</td>
+            <td class="col-topic">แรงตึงผิว</td>
+            <td class="col-formula">
+              <span class="pill">ฟิล์มสบู่ลวดตรง: $\gamma = \frac{F}{2l}$</span><br>
+              <span class="pill">ห่วงวงกลม: $\gamma = \frac{F}{4\pi r}$</span>
+            </td>
+            <td class="col-vars">ฟิล์มมี 2 ผิวหน้าสัมผัส (หน้า-หลัง หรือ ใน-นอก) จึงต้องคูณ 2 เสมอ</td>
+            <td class="col-units">$\text{N/m}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">7.8</td>
+            <td class="col-topic">สมการความต่อเนื่อง</td>
+            <td class="col-formula">
+              <span class="pill">$A_1 v_1 = A_2 v_2 = Q = \text{คงที่}$</span>
+            </td>
+            <td class="col-vars">$Q$: อัตราการไหลเชิงปริมาตร ($Q = \frac{V}{t}$) สำหรับของไหลบีบอัดไม่ได้</td>
+            <td class="col-units">$\text{m}^3/\text{s}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">7.9</td>
+            <td class="col-topic">สมการแบร์นูลลี</td>
+            <td class="col-formula">
+              <span class="pill">$P_1 + \frac{1}{2}\rho v_1^2 + \rho g h_1 = P_2 + \frac{1}{2}\rho v_2^2 + \rho g h_2$</span>
+            </td>
+            <td class="col-vars">การอนุรักษ์พลังงานในของไหลอุดมคติ (ที่จุดใดอัตราเร็วสูง ความดันจะต่ำ)</td>
+            <td class="col-units">$\text{Pa}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">7.10</td>
+            <td class="col-topic">ท่อเวนจูรีมิเตอร์</td>
+            <td class="col-formula">
+              <span class="pill">$v_1 = \sqrt{\frac{2gh}{(A_1/A_2)^2 - 1}}$</span>
+            </td>
+            <td class="col-vars">$h$: ผลต่างระดับความสูงของของเหลวในมาโนมิเตอร์แนวดิ่ง</td>
+            <td class="col-units">$\text{m/s}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">7.11</td>
+            <td class="col-topic">แรงยกปีกเครื่องบิน</td>
+            <td class="col-formula">
+              <span class="pill">$F_{\text{lift}} = \frac{1}{2}\rho(v_{\text{upper}}^2 - v_{\text{lower}}^2)A$</span>
+            </td>
+            <td class="col-vars">$A$: พื้นที่ปีก, อากาศเหนือปีกไหลเร็วกว่าใต้ปีก ทำให้ความดันใต้ปีกสูงกว่าเกิดแรงยก</td>
+            <td class="col-units">$\text{N}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">7.12</td>
+            <td class="col-topic">รูรั่วข้างถัง (Torricelli)</td>
+            <td class="col-formula">
+              <span class="pill">$v = \sqrt{2gh}$</span>&nbsp;
+              <span class="pill">$x = 2\sqrt{h(H-h)}$</span>
+            </td>
+            <td class="col-vars">$h$: ความลึกของรูรั่วจากผิวน้ำ, $H$: ความสูงระดับน้ำทั้งหมด</td>
+            <td class="col-units">$\text{m/s}, \text{m}$</td>
+          </tr>
+          <tr>
+            <td class="col-num">7.13</td>
+            <td class="col-topic">กฎของสโตกส์ &amp; ความเร็วปลาย</td>
+            <td class="col-formula">
+              <span class="pill">$F_f = 6\pi\eta R v$</span><br>
+              <span class="pill">$v_t = \frac{2}{9}\frac{R^2 g}{\eta}(\rho - \rho_0)$</span>
+            </td>
+            <td class="col-vars">
+              $\eta$: สัมประสิทธิ์ความหนืด, $R$: รัศมีทรงกลม<br>
+              $\rho$: ความหนาแน่นทรงกลม, $\rho_0$: ความหนาแน่นของไหล
+            </td>
+            <td class="col-units">$\text{Pa}\cdot\text{s}, \text{m/s}$</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Formula Cards Ch 7 -->
+    <div class="formula-grid" id="ch7-cards">
+      <div class="formula-card">
+        <div class="formula-card-head">
+          <span class="formula-card-title">1. แม่แรงไฮดรอลิกส์ &amp; คานโยก (Pascal's Law)</span>
+          <span class="formula-card-badge">คำนวณ 2 จังหวะ</span>
+        </div>
+        <div class="formula-card-body">
+          $$F_2 = F_1\left(\frac{A_2}{A_1}\right) = F_1\left(\frac{d_2}{d_1}\right)^2, \quad F_1 = F_{\text{hand}}\left(\frac{L}{l}\right)$$
+        </div>
+        <div class="formula-card-desc">
+          การได้เปรียบเชิงกลของระบบ = (อัตราทดคานโยก $\frac{L}{l}$) $\times$ (อัตราส่วนพื้นที่ $\frac{A_2}{A_1}$)
+        </div>
+        <div class="formula-card-trap">
+          <strong>จุดระวังข้อสอบ:</strong> โจทย์มักให้ "เส้นผ่านศูนย์กลาง" หรือ "รัศมี" มา อย่าลืมยกกำลังสอง! $(\frac{d_2}{d_1})^2$ และต้องคุมหน่วยมวลและน้ำหนักให้สอดคล้องกัน ($W = mg$)
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-head">
+          <span class="formula-card-title">2. หลอดแก้วรูปตัวยู (U-Tube Manometer)</span>
+          <span class="formula-card-badge">สมดุลความดัน</span>
+        </div>
+        <div class="formula-card-body">
+          $$P_{\text{left}} = P_{\text{right}} \implies P_0 + \rho_1 g h_1 = P_0 + \rho_2 g h_2$$
+        </div>
+        <div class="formula-card-desc">
+          ลากเส้นระดับอ้างอิงที่รอยต่อของเหลวด้านล่างสุด ในของเหลวชนิดเดียวกันที่ต่อเนื่องกัน ความดันที่ระดับความสูงเดียวกันย่อมเท่ากันเสมอ
+        </div>
+        <div class="formula-card-trap">
+          <strong>จุดระวังข้อสอบ:</strong> ตรวจสอบว่าปลายหลอดทั้งสองข้างเปิดสู่อากาศหรือไม่ ถ้าเปิดทั้งคู่ $P_0 = P_{\text{atm}}$ สามารถตัดทิ้งได้ เหลือเพียง $\rho_1 h_1 = \rho_2 h_2$
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-head">
+          <span class="formula-card-title">3. กฎของแบร์นูลลี (Bernoulli's Equation)</span>
+          <span class="formula-card-badge">หัวใจของไหล</span>
+        </div>
+        <div class="formula-card-body">
+          $$P_1 + \frac{1}{2}\rho v_1^2 + \rho g h_1 = P_2 + \frac{1}{2}\rho v_2^2 + \rho g h_2$$
+        </div>
+        <div class="formula-card-desc">
+          คู่กับสมการความต่อเนื่อง $A_1 v_1 = A_2 v_2$ เสมอ ใช้แก้โจทย์ท่อลดขนาด, รูรั่วข้างถัง, และเครื่องบิน
+        </div>
+        <div class="formula-card-trap">
+          <strong>จุดระวังข้อสอบ:</strong> จุดที่สัมผัสบรรยากาศ (เช่น ผิวน้ำในถังเปิด หรือลำน้ำที่พุ่งออกสู่อากาศ) ความดันสัมบูรณ์จะเท่ากับ $P_{\text{atm}}$ หรือถ้าคิดเป็นความดันเกจจะมีค่าเป็น $0$
+        </div>
+      </div>
+
+      <div class="formula-card">
+        <div class="formula-card-head">
+          <span class="formula-card-title">4. กฎของสโตกส์และความเร็วปลาย (Terminal Velocity)</span>
+          <span class="formula-card-badge">สมดุล 3 แรง</span>
+        </div>
+        <div class="formula-card-body">
+          $$\sum F = 0 \implies F_B + F_f = mg$$
+          $$\rho_0 g V + 6\pi\eta R v_t = \rho g V \implies v_t = \frac{2}{9}\frac{R^2 g}{\eta}(\rho - \rho_0)$$
+        </div>
+        <div class="formula-card-desc">
+          เมื่อลูกกลมโลหะตกลงในของเหลวหนืดจนความเร็วคงตัว (ความเร่ง $a = 0$)
+        </div>
+        <div class="formula-card-trap">
+          <strong>จุดระวังข้อสอบ:</strong> ในสูตรใช้ "รัศมี $R$" เสมอ ถ้าโจทย์ให้เส้นผ่านศูนย์กลางมา อย่าลืมหาร 2 ก่อนแทนค่า! และ $\rho$ คือความหนาแน่นวัตถุ ส่วน $\rho_0$ คือความหนาแน่นของเหลว
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 4: EXAM TRAPS & CHECKLIST
+  =========================================== -->
+  <section id="traps">
+    <h2><span class="badge">สรุปจุดระวัง</span> จุดที่ข้อสอบชอบดักคะแนน (Common Exam Traps)</h2>
+
+    <div class="note-box">
+      <h4>1. การตั้งโหมดเครื่องคิดเลข (Deg vs Rad)</h4>
+      <p>ในบทที่ 5 (SHM) และบทที่ 6 (คลื่น): พจน์ที่อยู่ในฟังก์ชันตรีโกณมิติ เช่น $\sin(\omega t + \phi)$ มีมุมเป็น <strong>เรเดียน (Radian)</strong> เสมอ! เมื่อกดเครื่องคิดเลขคำนวณค่าตำแหน่งหรือความเร็ว ณ เวลา $t$ ใดๆ ต้องตั้งโหมดเป็น <code>RAD</code> หรือแปลงเรเดียนเป็นองศาด้วย $\times \frac{180^\circ}{\pi}$ ก่อนเสมอ</p>
+    </div>
+
+    <div class="note-box">
+      <h4>2. ฮาร์มอนิกของท่อปลายปิด 1 ด้าน</h4>
+      <p>ท่อปลายปิด 1 ด้านจะมี <strong>เฉพาะฮาร์มอนิกเลขคี่ ($n = 1, 3, 5, \dots$)</strong> เท่านั้น:
+      <br>• ความถี่มูลฐาน (Fundamental) = ฮาร์มอนิกที่ 1 ($n=1$)
+      <br>• โอเวอร์โทนที่ 1 (1st Overtone) = ฮาร์มอนิกที่ 3 ($n=3$)
+      <br>• โอเวอร์โทนที่ 2 (2nd Overtone) = ฮาร์มอนิกที่ 5 ($n=5$)
+      <br><em>ห้ามแทนค่า $n=2$ เด็ดขาด!</em></p>
+    </div>
+
+    <div class="note-box">
+      <h4>3. ความดันเกจ vs ความดันสัมบูรณ์</h4>
+      <p>• <strong>ความดันเกจ ($P_G$):</strong> คิดเฉพาะน้ำหนักของเหลว $P_G = \rho g h$
+      <br>• <strong>ความดันสัมบูรณ์ ($P_{\text{abs}}$):</strong> รวมความดันบรรยากาศด้วยเสมอ $P_{\text{abs}} = P_{\text{atm}} + \rho g h$ โดย $P_{\text{atm}} \approx 1.013 \times 10^5\text{ Pa} \approx 1\text{ atm}$</p>
+    </div>
+
+    <div class="note-box">
+      <h4>4. ปริมาตรในแรงลอยตัวของอาร์คิมีดีส ($F_B$)</h4>
+      <p>สูตร $F_B = \rho_{\text{liquid}} g V_{\text{sub}}$ ต้องใช้ความหนาแน่นของ <strong>"ของเหลว"</strong> ไม่ใช่ของวัตถุ! และใช้ปริมาตร <strong>"เฉพาะส่วนที่จมอยู่ในของเหลว"</strong> เท่านั้น ถ้าวัตถุลอยน้ำ ปริมาตรส่วนที่โผล่พ้นน้ำไม่ต้องนำมาคิด</p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  function toggleTheme() {
+    var cur = document.documentElement.getAttribute('data-theme');
+    var nxt = cur === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', nxt);
+    document.getElementById('thl').textContent = nxt === 'dark' ? 'โหมดสว่าง' : 'โหมดมืด';
+  }
+</script>
+</body>
+</html>

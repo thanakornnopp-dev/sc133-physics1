@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SC 133 สูตรฟิสิกส์ 1 (A5 หน้าเดียว) · บทที่ 5, 6, 7</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]});"></script>
+  <style>
+    @page {
+      size: A5 portrait;
+      margin: 5mm;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background: #f0f2f5;
+      color: #111827;
+      font: 500 10.2px/1.35 "Sarabun", system-ui, -apple-system, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .page-a5 {
+      width: 148mm;
+      min-height: 210mm;
+      max-height: 210mm;
+      margin: 10px auto;
+      background: #ffffff;
+      padding: 6mm 6mm;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    @media print {
+      body { background: transparent; }
+      .page-a5 {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        box-shadow: none;
+        padding: 0;
+      }
+      .no-print { display: none !important; }
+    }
+    .header {
+      border-bottom: 1.5px solid #14295b;
+      padding-bottom: 2px;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    .title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #14295b;
+      letter-spacing: -0.2px;
+      margin: 0;
+    }
+    .subtitle {
+      font-size: 8.5px;
+      color: #a8651a;
+      font-weight: 700;
+      margin: 0;
+    }
+    .grid-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5px;
+      flex: 1;
+    }
+    .col-full {
+      grid-column: 1 / -1;
+    }
+    .box {
+      border: 1px solid #14295b;
+      border-radius: 3px;
+      padding: 3.5px 5px;
+      background: #fafbfc;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5px;
+    }
+    .box-title {
+      font-size: 10px;
+      font-weight: 800;
+      background: #14295b;
+      color: #ffffff;
+      margin: -3.5px -5px 3px -5px;
+      padding: 2px 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .box-title span.badge {
+      background: #a8651a;
+      color: #fff;
+      font-size: 8px;
+      padding: 0 4px;
+      border-radius: 2px;
+    }
+    .row {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      border-bottom: 0.5px dashed #cbd5e1;
+      padding-bottom: 1.5px;
+    }
+    .row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    .lbl {
+      font-weight: 700;
+      color: #14295b;
+      font-size: 9.5px;
+      white-space: nowrap;
+      min-width: 58px;
+    }
+    .eq {
+      font-size: 10px;
+      color: #0f172a;
+      white-space: nowrap !important;
+      overflow-x: hidden;
+    }
+    .eq .katex {
+      white-space: nowrap !important;
+      font-size: 1em;
+    }
+    .subtext {
+      font-size: 8.2px;
+      color: #475569;
+      margin-left: auto;
+      white-space: nowrap;
+    }
+    .trap-box {
+      border: 1px solid #b3201f;
+      background: #fff5f5;
+      border-radius: 3px;
+      padding: 3px 5px;
+      margin-top: 4px;
+      font-size: 8.5px;
+      color: #991b1b;
+      line-height: 1.3;
+    }
+    .trap-box strong {
+      color: #b3201f;
+      font-weight: 800;
+    }
+    .print-bar {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .btn-print {
+      background: #14295b;
+      color: #fff;
+      border: none;
+      padding: 6px 16px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: inherit;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn-print:hover { background: #1c2fa8; }
+  </style>
+</head>
+<body>
+
+<div class="print-bar no-print">
+  <button class="btn-print" onclick="window.print()">🖨️ สั่งพิมพ์ A5 หน้าเดียว (Print / Save PDF)</button>
+  <span style="font-size:11px; color:#555; margin-left:10px;">(หรือดูหน้าจอแล้วจดด้วยมือลงกระดาษ A5 ตาม Layout นี้ได้ทันที)</span>
+</div>
+
+<div class="page-a5">
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <h1 class="title">SC 133 สูตรฟิสิกส์ 1 (A5 หน้าเดียว)</h1>
+      <p class="subtitle">สถาปัตยกรรมสรุปสูตรกระชับฉบับจดเข้าห้องสอบ · คณะวิศวกรรมศาสตร์ มธ.</p>
+    </div>
+    <div style="text-align:right; font-size:8.5px; font-weight:700; color:#14295b;">
+      บทที่ 5 · 6 · 7
+    </div>
+  </div>
+
+  <div class="grid-layout">
+    
+    <!-- BLOCK 1: บทที่ 5 การแกว่งกวัด SHM -->
+    <div class="box">
+      <div class="box-title">
+        <span>บทที่ 5 : แกว่งกวัด &amp; SHM</span>
+        <span class="badge">Oscillations</span>
+      </div>
+      <div class="row">
+        <span class="lbl">นิยามคาบ:</span>
+        <span class="eq">$T = \frac{1}{f} = \frac{2\pi}{\omega}, \quad \omega = 2\pi f$</span>
+      </div>
+      <div class="row">
+        <span class="lbl">สมการ SHM:</span>
+        <span class="eq">$x = A\sin(\omega t+\phi)$</span>
+        <span class="subtext">[$x=0 \to v_{\max}$]</span>
+      </div>
+      <div class="row">
+        <span class="lbl">ความเร็ว:</span>
+        <span class="eq">$v = \omega A\cos(\omega t+\phi) = \pm\omega\sqrt{A^2-x^2}$</span>
+      </div>
+      <div class="row">
+        <span class="lbl">ความเร่ง:</span>
+        <span class="eq">$a = -\omega^2 x, \quad a_{\max} = \omega^2 A$</span>
+        <span class="subtext">[$x=\pm A$]</span>
+      </div>
+      <div class="row">
+        <span class="lbl">สปริง:</span>
+        <span class="eq">$\omega = \sqrt{\frac{k}{m}}, \quad T = 2\pi\sqrt{\frac{m}{k}}$</span>
+      </div>
+      <div class="row">
+        <span class="lbl">พลังงาน:</span>
+        <span class="eq">$E = \frac{1}{2}kA^2 = \frac{1}{2}mv^2 + \frac{1}{2}kx^2$ (คงที่)</span>
+      </div>
+      <div class="row">
+        <span class="lbl">Simple:</span>
+        <span class="eq">$T = 2\pi\sqrt{\frac{L}{g}}$</span>
+        <span class="subtext">(ไม่ขึ้นกับมวล $m$)</span>
+      </div>
+      <div class="row">
+        <span class="lbl">Physical:</span>
+        <span class="eq">$T = 2\pi\sqrt{\frac{I}{mgd}}$</span>
+        <span class="subtext">[$d$ = จุดหมุน $\to$ CM]</span>
+      </div>
+      <div class="row">
+        <span class="lbl">Torsion:</span>
+        <span class="eq">$\tau = -\kappa\theta, \quad T = 2\pi\sqrt{\frac{I}{\kappa}}$</span>
+      </div>
+      <div class="row">
+        <span class="lbl">หน่วง Damped:</span>
+        <span class="eq">$A(t) = A_0 e^{-\gamma t}, \quad \gamma = \frac{b}{2m}$</span>
+      </div>
+      <div class="row">
+        <span class="lbl">สภาวะหน่วง:</span>
+        <span class="eq">$\omega' = \sqrt{\omega_0^2-\gamma^2}$</span>
+        <span class="subtext">เกิน($>$), วิกฤต($=$), น้อย($<$)</span>
+      </div>
+      <div class="row">
+        <span class="lbl">สั่นพ้อง:</span>
+        <span class="eq">$\omega_f = \omega_0 \implies A_{\text{max}}$ (Resonance)</span>
+      </div>
+    </div>
+
+    <!-- BLOCK 2: บทที่ 6 คลื่นและคลื่นเสียง -->
+    <div class="box">
+      <div class="box-title">
+        <span>บทที่ 6 : คลื่นและคลื่นเสียง</span>
+        <span class="badge">Waves &amp; Sound</span>
+      </div>
+      <div class="row">
+        <span class="lbl">คลื่นทั่วไป:</span>
+        <span class="eq">$v = f\lambda = \frac{\omega}{k}, \quad k = \frac{2\pi}{\lambda}$</span>
+      </div>
+      <div class="row">
+        <span class="lbl">ฟังก์ชันคลื่น:</span>
+        <span class="eq">$y = A\sin(kx \mp \omega t)$</span>
+        <span class="subtext">[- ขวา, + ซ้าย]</span>
+      </div>
+      <div class="row">
+        <span class="lbl">เชือก / น้ำ:</span>
+        <span class="eq">$v = \sqrt{\frac{T}{\mu}}$ ($\mu = \frac{m}{L}$), $\quad v_{\text{น้ำ}} = \sqrt{gd}$</span>
+      </div>
+      <div class="row">
+        <span class="lbl">ของแข็ง/ไหล:</span>
+        <span class="eq">$v = \sqrt{\frac{Y}{\rho}}$ (แข็ง), $\quad v = \sqrt{\frac{B}{\rho}}$ (ไหล)</span>
+      </div>
+      <div class="row">
+        <span class="lbl">เสียงในอากาศ:</span>
+        <span class="eq">$v = 331 + 0.6T_C \quad [\text{m/s}]$</span>
+      </div>
+      <div class="row">
+        <span class="lbl">สเนลล์:</span>
+        <span class="eq">$\frac{\sin\theta_1}{\sin\theta_2} = \frac{v_1}{v_2} = \frac{\lambda_1}{\lambda_2} = \frac{n_2}{n_1}$ ($f$ คงที่)</span>
+      </div>
+      <div class="row">
+        <span class="lbl">แทรกสอด:</span>
+        <span class="eq">ปฏิบัพ: $d\sin\theta = n\lambda$, บัพ: $(n-\frac{1}{2})\lambda$</span>
+      </div>
+      <div class="row">
+        <span class="lbl">เชือก/ท่อเปิด:</span>
+        <span class="eq">$f_n = \frac{nv}{2L} = n f_1 \quad (n = 1, 2, 3, \dots)$</span>
+      </div>
+      <div class="row">
+        <span class="lbl">ท่อปิด 1 ด้าน:</span>
+        <span class="eq">$f_n = \frac{nv}{4L} = n f_1 \quad (n = 1, 3, 5, \dots \text{คี่})$</span>
+      </div>
+      <div class="row">
+        <span class="lbl">เรโซแนนซ์:</span>
+        <span class="eq">$L_2 - L_1 = \frac{\lambda}{2} \implies v = 2(L_2-L_1)f$</span>
+      </div>
+      <div class="row">
+        <span class="lbl">เข้ม/ระดับ:</span>
+        <span class="eq">$I = \frac{P}{4\pi R^2}, \quad \beta = 10\log\left(\frac{I}{10^{-12}}\right)$</span>
+      </div>
+      <div class="row">
+        <span class="lbl">บีตส์:</span>
+        <span class="eq">$f_{\text{beat}} = |f_1 - f_2|$</span>
+        <span class="subtext">(ติดขี้ผึ้ง $\implies f \downarrow$)</span>
+      </div>
+      <div class="row">
+        <span class="lbl">ดอปเปลอร์:</span>
+        <span class="eq">$f' = f\left(\frac{v \pm v_o}{v \mp v_s}\right)$</span>
+        <span class="subtext">[บน: เข้า+, ล่าง: เข้า-]</span>
+      </div>
+      <div class="row">
+        <span class="lbl">Shock wave:</span>
+        <span class="eq">$\sin\theta = \frac{v}{v_s}, \quad M = \frac{v_s}{v} = \frac{1}{\sin\theta}$</span>
+      </div>
+    </div>
+
+    <!-- BLOCK 3: บทที่ 7 สมบัติเชิงกลและของไหล -->
+    <div class="box col-full">
+      <div class="box-title">
+        <span>บทที่ 7 : สมบัติเชิงกลของสารและกลศาสตร์ของไหล</span>
+        <span class="badge">Fluids &amp; Matter</span>
+      </div>
+      <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+        <div>
+          <div class="row">
+            <span class="lbl">เค้น / เครียด:</span>
+            <span class="eq">$\sigma = \frac{F}{A}, \quad e = \frac{\Delta L}{L_0}, \quad \gamma \approx \theta = \frac{a}{h}$</span>
+          </div>
+          <div class="row">
+            <span class="lbl">ยังมอดูลัส:</span>
+            <span class="eq">$Y = \frac{\sigma}{e} = \frac{F L_0}{A \Delta L}, \quad S = \frac{F/A}{\gamma}$</span>
+          </div>
+          <div class="row">
+            <span class="lbl">บัลก์มอดูลัส:</span>
+            <span class="eq">$B = -\frac{\Delta P}{\Delta V/V_0}$</span>
+          </div>
+          <div class="row">
+            <span class="lbl">ความดัน:</span>
+            <span class="eq">$P_G = \rho gh, \quad P_{\text{abs}} = P_{\text{atm}} + \rho gh$</span>
+          </div>
+          <div class="row">
+            <span class="lbl">หลอดตัวยู:</span>
+            <span class="eq">$P_L = P_R \implies \rho_1 h_1 = \rho_2 h_2$</span>
+          </div>
+          <div class="row">
+            <span class="lbl">ปาสคาล:</span>
+            <span class="eq">$\frac{F_1}{A_1} = \frac{F_2}{A_2} \implies F_2 = F_1\left(\frac{d_2}{d_1}\right)^2$</span>
+          </div>
+          <div class="row">
+            <span class="lbl">คานโยก:</span>
+            <span class="eq">$F_{\text{hand}} \cdot L = F_1 \cdot l \implies F_1 = F_{\text{hand}}\frac{L}{l}$</span>
+          </div>
+        </div>
+        <div>
+          <div class="row">
+            <span class="lbl">แรงลอยตัว:</span>
+            <span class="eq">$F_B = \rho_{\text{fluid}} g V_{\text{sub}}, \quad T = mg - F_B$</span>
+          </div>
+          <div class="row">
+            <span class="lbl">แรงตึงผิว:</span>
+            <span class="eq">ฟิล์ม: $\gamma = \frac{F}{2l}, \quad$ วงกลม: $\gamma = \frac{F}{4\pi r}$</span>
+          </div>
+          <div class="row">
+            <span class="lbl">ต่อเนื่อง:</span>
+            <span class="eq">$A_1 v_1 = A_2 v_2 = Q$ (ของไหล $\rho$ คงที่)</span>
+          </div>
+          <div class="row">
+            <span class="lbl">แบร์นูลลี:</span>
+            <span class="eq">$P_1 + \frac{1}{2}\rho v_1^2 + \rho gh_1 = P_2 + \frac{1}{2}\rho v_2^2 + \rho gh_2$</span>
+          </div>
+          <div class="row">
+            <span class="lbl">เวนจูรี:</span>
+            <span class="eq">$v_1 = \sqrt{\frac{2gh}{(A_1/A_2)^2 - 1}}, \quad F_{\text{lift}} = \frac{1}{2}\rho(v_2^2 - v_1^2)A$</span>
+          </div>
+          <div class="row">
+            <span class="lbl">รูรั่วถัง:</span>
+            <span class="eq">$v = \sqrt{2gh}, \quad x_{\text{ตก}} = 2\sqrt{h(H-h)}$</span>
+          </div>
+          <div class="row">
+            <span class="lbl">สโตกส์:</span>
+            <span class="eq">$F_f = 6\pi\eta R v, \quad v_t = \frac{2}{9}\frac{R^2 g}{\eta}(\rho - \rho_0)$</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Trap Box -->
+  <div class="trap-box">
+    <strong>⚡ ทริคกันตายก่อนส่งข้อสอบ:</strong>
+    1) มุม SHM ตรีโกณอยู่ในโหมด <strong>RAD</strong> เสมอ
+    2) ท่อปิด 1 ด้านมีเฉพาะฮาร์มอนิก <strong>เลขคี่ ($n=1,3,5$)</strong> ห้ามใช้ $n=2$
+    3) แม่แรงไฮดรอลิกส์ถ้าให้ $d$ ต้อง <strong>ยกกำลังสอง</strong> $(d_2/d_1)^2$
+    4) แรงลอยตัว $F_B$ ใช้ <strong>$\rho_{\text{เหลว}}$</strong> และ $V$ <strong>เฉพาะส่วนที่จม</strong>
+    5) ค่าคงที่: $P_{\text{atm}} = 1.013\times 10^5\text{ Pa}$, $\rho_{\text{น้ำ}} = 1000\text{ kg/m}^3$
+  </div>
+</div>
+
+</body>
+</html>

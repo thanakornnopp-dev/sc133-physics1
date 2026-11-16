@@ -1,0 +1,142 @@
+% ==============================================================================
+% SC 133 General Physics 1 (ฟิสิกส์ 1) - One-Page A5 Formula Cheat Sheet
+% Chapters 5, 6, 7: Oscillations (SHM), Waves & Sound, Properties of Matter & Fluids
+% Department of Civil Engineering / Faculty of Engineering, Thammasat University
+% Formatted strictly per engineering-latex-format standards (Overleaf-ready)
+% Compiler: XeLaTeX or LuaLaTeX (recommended for UTF-8 Thai), or pdfLaTeX
+% ==============================================================================
+
+\documentclass[10pt, a5paper]{article}
+
+\usepackage[a5paper, margin=5mm, top=5mm, bottom=5mm]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{multicol}
+\usepackage{tcolorbox}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{microtype}
+\usepackage{xcolor}
+
+% Define Colors matching CE272 design system
+\definecolor{navy}{RGB}{20, 41, 91}
+\definecolor{gold}{RGB}{168, 101, 26}
+\definecolor{darkred}{RGB}{179, 32, 31}
+\definecolor{boxbg}{RGB}{248, 250, 252}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1pt}
+
+% Custom compact section header
+\newcommand{\boxheader}[2]{%
+  \noindent\colorbox{navy}{\parbox{\dimexpr\linewidth-2\fboxsep}{%
+    \textbf{\textcolor{white}{\small #1}} \hfill \textbf{\textcolor{white}{\scriptsize #2}}%
+  }}\vspace{1.5pt}%
+}
+
+\begin{document}
+
+% ---------------- Header ----------------
+\begin{minipage}{0.72\textwidth}
+  {\fontsize{11.5}{13}\selectfont \textbf{\textcolor{navy}{SC 133 ฟิสิกส์ 1: แผ่นสรุปสูตรกระดาษ A5 หน้าเดียว}}} \\
+  {\fontsize{7.5}{9}\selectfont \textbf{\textcolor{gold}{บทที่ 5 การแกว่งกวัด (SHM) · บทที่ 6 คลื่นและเสียง · บทที่ 7 สมบัติสารและของไหล}}}
+\end{minipage}
+\hfill
+\begin{minipage}{0.26\textwidth}
+  \raggedleft
+  {\fontsize{7.5}{9}\selectfont \textbf{\textcolor{navy}{คณะวิศวกรรมศาสตร์ มธ.}}} \\
+  {\fontsize{6.5}{8}\selectfont \textcolor{darkred}{\textbf{One-Page Cheat Sheet}}}
+\end{minipage}
+\vspace{1.5pt}\hrule height 1.2pt \vspace{3pt}
+
+% ---------------- Top Grid: Ch 5 & Ch 6 (2 Columns) ----------------
+\begin{multicols}{2}
+\setlength{\columnsep}{5pt}
+
+% === BLOCK 1: CHAPTER 5 (SHM & Oscillations) ===
+\boxheader{บทที่ 5 : การแกว่งกวัด & SHM}{Oscillations}
+\begin{tcolorbox}[colback=boxbg, colframe=navy, boxrule=0.6pt, arc=1.5pt, left=2.5pt, right=2.5pt, top=2.5pt, bottom=2.5pt]
+{\fontsize{7.8}{9.5}\selectfont
+$\bullet$ \textbf{คาบ-ความถี่:} $T = \dfrac{1}{f} = \dfrac{2\pi}{\omega}, \quad \omega = 2\pi f\,\left[\text{rad/s}\right]$\\[1pt]
+$\bullet$ \textbf{การกระจัด:} $x(t) = A\sin(\omega t + \phi) \quad (x=0 \to v_{\max})$\\[1pt]
+$\bullet$ \textbf{ความเร็ว:} $v(t) = \omega A\cos(\omega t + \phi) = \pm\omega\sqrt{A^2 - x^2}$\\[1pt]
+$\bullet$ \textbf{ความเร่ง:} $a(t) = -\omega^2 x, \quad a_{\max} = \omega^2 A \quad (x=\pm A)$\\[1pt]
+$\bullet$ \textbf{มวลติดสปริง:} $\omega = \sqrt{\dfrac{k}{m}}, \quad T = 2\pi\sqrt{\dfrac{m}{k}} \quad [k: \text{N/m}]$\\[1pt]
+$\bullet$ \textbf{พลังงานกลรวม:} $E = \dfrac{1}{2}kA^2 = \dfrac{1}{2}mv^2 + \dfrac{1}{2}kx^2 = \text{const}$\\[1pt]
+$\bullet$ \textbf{ลูกตุ้มอย่างง่าย (Simple):} $T = 2\pi\sqrt{\dfrac{L}{g}} \quad (\text{ไม่ขึ้นกับ } m)$\\[1pt]
+$\bullet$ \textbf{ลูกตุ้มกายภาพ (Physical):} $T = 2\pi\sqrt{\dfrac{I}{mgd}} \quad (d: O \to \text{CM})$\\[1pt]
+$\bullet$ \textbf{ลูกตุ้มบิด (Torsion):} $\tau = -\kappa\theta, \quad T = 2\pi\sqrt{\dfrac{I}{\kappa}}$\\[1pt]
+$\bullet$ \textbf{การแกว่งแบบหน่วง (Damped):} $A(t) = A_0 e^{-\gamma t}$\\[1pt]
+\phantom{$\bullet$} โดย $\gamma = \dfrac{b}{2m}, \quad \omega' = \sqrt{\omega_0^2 - \gamma^2}$\\[1pt]
+\phantom{$\bullet$} หน่วงเกิน ($\gamma > \omega_0$), วิกฤต ($\gamma = \omega_0$), น้อย ($\gamma < \omega_0$)\\[1pt]
+$\bullet$ \textbf{การสั่นพ้อง (Resonance):} $\omega_f = \omega_0 \implies A \to \text{maximum}$
+}
+\end{tcolorbox}
+
+\vfill\null
+\columnbreak
+
+% === BLOCK 2: CHAPTER 6 (Waves & Sound) ===
+\boxheader{บทที่ 6 : คลื่นและคลื่นเสียง}{Waves \& Sound}
+\begin{tcolorbox}[colback=boxbg, colframe=navy, boxrule=0.6pt, arc=1.5pt, left=2.5pt, right=2.5pt, top=2.5pt, bottom=2.5pt]
+{\fontsize{7.8}{9.5}\selectfont
+$\bullet$ \textbf{อัตราเร็วคลื่น:} $v = f\lambda = \dfrac{\omega}{k}, \quad k = \dfrac{2\pi}{\lambda}\,\left[\text{rad/m}\right]$\\[1pt]
+$\bullet$ \textbf{ฟังก์ชันคลื่น:} $y(x,t) = A\sin(kx \mp \omega t) \quad [-\text{ขวา}, +\text{ซ้าย}]$\\[1pt]
+$\bullet$ \textbf{เชือก / น้ำ:} $v_{\text{เชือก}} = \sqrt{\dfrac{T}{\mu}} \; \left(\mu = \dfrac{m}{L}\right), \quad v_{\text{น้ำ}} = \sqrt{gd}$\\[1pt]
+$\bullet$ \textbf{ของแข็ง / ไหล:} $v_{\text{แข็ง}} = \sqrt{\dfrac{Y}{\rho}}, \quad v_{\text{ไหล}} = \sqrt{\dfrac{B}{\rho}}$\\[1pt]
+$\bullet$ \textbf{เสียงในอากาศ:} $v_T = 331 + 0.6T_C\,\left[\text{m/s}\right] \quad (T_C \text{ เป็น } ^\circ\text{C})$\\[1pt]
+$\bullet$ \textbf{กฎของสเนลล์:} $\dfrac{\sin\theta_1}{\sin\theta_2} = \dfrac{v_1}{v_2} = \dfrac{\lambda_1}{\lambda_2} = \dfrac{n_2}{n_1} \quad (f \text{ คงที่})$\\[1pt]
+$\bullet$ \textbf{แทรกสอด (เฟสตรง):} ปฏิบัพ $d\sin\theta = n\lambda$, บัพ $(n-\frac{1}{2})\lambda$\\[1pt]
+$\bullet$ \textbf{เชือก 2 ปลาย / ท่อเปิด 2 ด้าน:} $f_n = \dfrac{nv}{2L} = n f_1 \; (n=1,2,3...)$\\[1pt]
+$\bullet$ \textbf{ท่อปิด 1 ด้าน:} $f_n = \dfrac{nv}{4L} = n f_1 \quad (n = 1, 3, 5, \dots \textbf{ คี่เท่านั้น!})$\\[1pt]
+$\bullet$ \textbf{เรโซแนนซ์:} $L_2 - L_1 = \dfrac{\lambda}{2} \implies v = 2(L_2 - L_1)f$\\[1pt]
+$\bullet$ \textbf{ความเข้ม \& ระดับ:} $I = \dfrac{P}{4\pi R^2}, \quad \beta = 10\log_{10}\left(\dfrac{I}{10^{-12}}\right)$\\[1pt]
+$\bullet$ \textbf{บีตส์:} $f_{\text{beat}} = |f_1 - f_2| \quad (\text{ติดขี้ผึ้ง } m \uparrow \implies f \downarrow)$\\[1pt]
+$\bullet$ \textbf{ดอปเปลอร์:} $f' = f\left(\dfrac{v \pm v_o}{v \mp v_s}\right) \quad \left[\dfrac{\text{ผู้สังเกต } (+ \text{เข้า}, - \text{หนี})}{\text{แหล่งกำเนิด } (- \text{เข้า}, + \text{หนี})}\right]$\\[1pt]
+$\bullet$ \textbf{คลื่นกระแทก:} $\sin\theta = \dfrac{v}{v_s}, \quad M = \dfrac{v_s}{v} = \dfrac{1}{\sin\theta}$
+}
+\end{tcolorbox}
+
+\end{multicols}
+\vspace{-2pt}
+
+% === BLOCK 3: CHAPTER 7 (Fluids & Mechanical Properties) ===
+\boxheader{บทที่ 7 : สมบัติเชิงกลของสารและกลศาสตร์ของไหล}{Elasticity \& Fluid Mechanics}
+\begin{tcolorbox}[colback=boxbg, colframe=navy, boxrule=0.6pt, arc=1.5pt, left=3pt, right=3pt, top=2.5pt, bottom=2.5pt]
+\begin{multicols}{2}
+\setlength{\columnsep}{6pt}
+{\fontsize{7.8}{9.5}\selectfont
+$\bullet$ \textbf{เค้น / เครียด:} $\sigma = \dfrac{F}{A}\,\left[\text{Pa}\right], \quad e = \dfrac{\Delta L}{L_0}, \quad \gamma \approx \theta = \dfrac{a}{h}$\\[1pt]
+$\bullet$ \textbf{ยังมอดูลัส:} $Y = \dfrac{\sigma}{e} = \dfrac{F L_0}{A \Delta L}, \quad S = \dfrac{F/A}{\gamma}$\\[1pt]
+$\bullet$ \textbf{บัลก์มอดูลัส:} $B = -\dfrac{\Delta P}{\Delta V / V_0} \quad (\Delta P \uparrow \implies V \downarrow)$\\[1pt]
+$\bullet$ \textbf{ความดัน:} $P_G = \rho gh \quad (\text{เกจ}), \quad P_{\text{abs}} = P_{\text{atm}} + \rho gh$\\[1pt]
+$\bullet$ \textbf{หลอดตัวยู:} $P_{\text{ซ้าย}} = P_{\text{ขวา}} \implies \rho_1 h_1 = \rho_2 h_2$\\[1pt]
+$\bullet$ \textbf{ปาสคาล:} $\dfrac{F_1}{A_1} = \dfrac{F_2}{A_2} \implies F_2 = F_1\left(\dfrac{d_2}{d_1}\right)^2$\\[1pt]
+$\bullet$ \textbf{คานโยก:} $F_{\text{มือ}} \cdot L = F_1 \cdot l \implies F_1 = F_{\text{มือ}}\left(\dfrac{L}{l}\right)$\\[1pt]
+$\bullet$ \textbf{แรงลอยตัว:} $F_B = \rho_{\text{fluid}} g V_{\text{sub}}, \quad T_{\text{ชั่งในน้ำ}} = mg - F_B$\\[1pt]
+$\bullet$ \textbf{แรงตึงผิว:} ฟิล์มตรง $\gamma = \dfrac{F}{2l}$, ห่วงกลม $\gamma = \dfrac{F}{4\pi r}$\\[1pt]
+$\bullet$ \textbf{ความต่อเนื่อง:} $A_1 v_1 = A_2 v_2 = Q\,\left[\text{m}^3/\text{s}\right] \quad (\rho \text{ คงที่})$\\[1pt]
+$\bullet$ \textbf{แบร์นูลลี:} $P_1 + \dfrac{1}{2}\rho v_1^2 + \rho gh_1 = P_2 + \dfrac{1}{2}\rho v_2^2 + \rho gh_2$\\[1pt]
+$\bullet$ \textbf{เวนจูรีมิเตอร์:} $v_1 = \sqrt{\dfrac{2gh}{(A_1/A_2)^2 - 1}}$\\[1pt]
+$\bullet$ \textbf{แรงยกปีกเครื่องบิน:} $F_{\text{lift}} = \dfrac{1}{2}\rho(v_{\text{บน}}^2 - v_{\text{ล่าง}}^2)A$\\[1pt]
+$\bullet$ \textbf{รูรั่วข้างถัง (Torricelli):} $v = \sqrt{2gh}, \quad x_{\text{ตก}} = 2\sqrt{h(H-h)}$\\[1pt]
+$\bullet$ \textbf{กฎของสโตกส์:} $F_f = 6\pi\eta R v \quad [\eta: \text{Pa}\cdot\text{s}]$\\[1pt]
+$\bullet$ \textbf{ความเร็วปลายคงที่:} $v_t = \dfrac{2}{9}\dfrac{R^2 g}{\eta}(\rho_{\text{กลม}} - \rho_{\text{ไหล}})$
+}
+\end{multicols}
+\end{tcolorbox}
+\vspace{-2pt}
+
+% ---------------- Footer Box: Exam Traps & Constants ----------------
+\begin{tcolorbox}[colback=white, colframe=darkred, boxrule=0.7pt, arc=1.5pt, left=3pt, right=3pt, top=2pt, bottom=2pt]
+{\fontsize{7.5}{9}\selectfont
+\textcolor{darkred}{\textbf{⚡ ข้อควรระวังในการคำนวณ (Exam Traps) \& ค่าคงที่:}}
+\textbf{1)} มุมตรีโกณ SHM เป็น \textbf{Radian} เสมอ (ตั้งเครื่องคิดเลขโหมด \texttt{RAD}) \quad
+\textbf{2)} ท่อปิด 1 ด้านมีเฉพาะฮาร์มอนิก \textbf{เลขคี่ ($n=1,3,5$)} เท่านั้น (โอเวอร์โทน 1 คือ $n=3$) \quad
+\textbf{3)} แม่แรงไฮดรอลิกส์ถ้าให้ $d$ มาต้อง \textbf{ยกกำลังสอง} $\left(\frac{d_2}{d_1}\right)^2$ \quad
+\textbf{4)} แรงลอยตัวใช้ $\rho_{\text{เหลว}}$ และ $V$ \textbf{เฉพาะส่วนที่จม} \quad
+\textbf{5)} ค่าคงที่: $P_{\text{atm}} = 1.013 \times 10^5\,\text{Pa}, \quad \rho_{\text{น้ำ}} = 1,000\,\text{kg/m}^3, \quad I_0 = 10^{-12}\,\text{W/m}^2$
+}
+\end{tcolorbox}
+
+\end{document}
